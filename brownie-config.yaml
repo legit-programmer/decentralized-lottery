@@ -1,7 +1,13 @@
 dependencies:
     - smartcontractkit/chainlink-brownie-contracts@0.2.1
+    - OpenZeppelin/openzeppelin-contracts@4.9.2
 
 compiler:
     solc:
         remappings:
             - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.2.1'
+            - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.9.2'
+
+networks:
+    ganache-mainnetfork:
+        priceFeed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
