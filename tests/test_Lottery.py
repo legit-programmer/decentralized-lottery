@@ -1,6 +1,6 @@
 # 0.027 in eth minimum
 # 27000000000000000 in wei
-from brownie import accounts, Lottery, config, network
+from brownie import accounts, Lottery, config, network, Contract
 from web3 import Web3
 from dotenv import load_dotenv
 import os
@@ -14,6 +14,8 @@ def test_minimumFee():
     requestid = 0
     contract = Lottery.deploy(config['networks'][network.show_active()]['priceFeed'], {
                             'from': accounts.add(os.getenv('PRIVATE_KEY'))})
+    linkToken = Contract.from_explorer("0x6b175474e89094c44da98b954eedeac495271d0f")
+    linkToken.transfer(contract.address, 1e18, accounts.add(os.getenv('PRIVATE_KEY')))
     fee = contract.getEntranceFee()
     print(fee)
     requestid = contract.requestRandomWords({'from':accounts.add(os.getenv('PRIVATE_KEY')), 'gas_limit':500000})
