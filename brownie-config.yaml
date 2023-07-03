@@ -5,9 +5,11 @@ dependencies:
 compiler:
     solc:
         remappings:
-            - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.6.1'
-            - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.9.2'
+            - "@chainlink=smartcontractkit/chainlink-brownie-contracts@0.6.1"
+            - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.9.2"
 
 networks:
     ganache-mainnetfork:
         priceFeed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    sepolia-alchemy:
+        priceFeed: "0x694AA1769357215DE4FAC081bf1f309aDC325306"
